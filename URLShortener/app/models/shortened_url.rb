@@ -12,8 +12,22 @@ class ShortenedUrl < ApplicationRecord
     foreign_key: :user_id,
     class_name: :User
 
+  def self.(user, long_url)
+    options = {}
+
+    # nice code for adding short_url, user, and long_url to hash?
+
+    ShortenedUrl.create!(options)
+  end
+
   def initialize(options)
     short_url = ShortenedUrl.random_code
+
+    ShortenedUrl.exists?()
+
+    options[:short_url] = short_url
+
+    super(options)
   end
 end
 
