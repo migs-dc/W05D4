@@ -11,4 +11,10 @@ class ShortenedUrl < ApplicationRecord
     primary_key: :id,
     foreign_key: :user_id,
     class_name: :User
+
+  def initialize(options)
+    short_url = ShortenedUrl.random_code
+  end
 end
+
+#ShortenedUrl
